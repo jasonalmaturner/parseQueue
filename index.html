@@ -6,10 +6,26 @@
 </head>
 <body>
   <div class="mainContainer" ng-controller="mainController">
-  	<form ng-submit="postData()">
+  	<form>
   		<input placeholder="Question" ng-model="question">
   		<button ng-click="postData()">Enter Queue</button>
   	</form>
+  	<div class="in-queue">
+  		<div class="header">
+  			<p>Queue</p>
+  		</div>
+  		<hr>
+  		<div ng-repeat="key in questions | filter:{status: 'red'}">
+  			<button ng-click="changeStatus(key)">Help</button>{{key.text}}
+  		</div>
+  		<div class="header">
+  			<p>Being Helped</p>
+  		</div>
+  		<hr>
+  		<div ng-repeat="key in questions | filter:{status: 'yellow'}">
+  			<button ng-click="deleteData(key)">Helped</button>{{key.text}}
+  		</div>
+  	</div>
   </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 <script src="js/app.js"></script>
