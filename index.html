@@ -1,10 +1,20 @@
 <DOCTYPE html>
-<html>
+<html lang="en" ng-app="parseQ">
 <head>
-	<title>ParseQ</title>
+  <title>ParseQ</title>
+  <link type="text/css" href="main.css">
 </head>
 <body>
-
+  <div class="mainContainer" ng-controller="mainController">
+  	<form ng-submit="postData()">
+  		<input placeholder="Question" ng-model="question">
+  		<button ng-click="postData()">Enter Queue</button>
+  	</form>
+  </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/services/parseService.js"></script>
+<script src="js/defaultHeaders.js"></script>
 </body>
 </html>
